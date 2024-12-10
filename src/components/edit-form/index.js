@@ -1,3 +1,3 @@
-import EditProfileArticle from "./editForm";
+import EditProfileArticle from './editForm';
 
 export default EditProfileArticle;

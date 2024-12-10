@@ -1,3 +1,3 @@
-import ArticleProfile from "./articleProfile";
+import ArticleProfile from './articleProfile';
 
 export default ArticleProfile;

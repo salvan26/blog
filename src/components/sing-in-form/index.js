@@ -1,3 +1,3 @@
-import SingInForm from "./singInForm";
+import SingInForm from './singInForm';
 
 export default SingInForm;

@@ -51,12 +51,14 @@ const ArticleProfile = ({ article }) => {
   let tags;
   if (article.tagList) {
     tags = article.tagList.map((tag) => (
-      <Text key={nanoid()} code>{tag}</Text>
+      <Text key={nanoid()} code>
+        {tag}
+      </Text>
     ));
   } else {
     tags = [];
   }
-  
+
   const updatedFavoritesCount = isLiked ? article.favoritesCount + 1 : article.favoritesCount;
 
   const creationDate = format(new Date(article.createdAt), 'MMMM dd, yyyy');

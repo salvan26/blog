@@ -1,3 +1,3 @@
-import EditArticle from "./editArticle";
+import EditArticle from './editArticle';
 
 export default EditArticle;

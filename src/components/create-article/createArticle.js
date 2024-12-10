@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { createArticleThunk } from '../../redux/reducers/createArticleReduser';
-import Loader from '../../components/loader/loader';
+import Loader from '../loader/loader';
 
 import classes from './createArticle.module.scss';
 import schema from './schema';
