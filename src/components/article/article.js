@@ -50,7 +50,6 @@ const Article = () => {
   const handleLike = () => {
     const newFavoritedStatus = !isLiked;
     setIsLiked(newFavoritedStatus);
-    console.log(slug);
     dispatch(likeArticleThunk({ slug: article.slug, favorited: article.favorited }));
 
     localStorage.setItem(`liked_${slug}`, JSON.stringify(newFavoritedStatus));

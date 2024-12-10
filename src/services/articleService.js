@@ -9,7 +9,6 @@ const getSingleArticle = async (slug, rejectedWithValue) => {
   } catch (error) {
     if (error.status === 404) {
       getSingleArticle(slug, rejectedWithValue);
-      console.log('repeat fetch');
     }
     return rejectedWithValue({
       message: error.message,

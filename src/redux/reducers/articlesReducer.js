@@ -18,7 +18,6 @@ export const likeArticleThunk = createAsyncThunk('article/likeArticle', async ({
     token = JSON.parse(localStorage.getItem('token'));
   }
 
-  console.log(slug, favorited, token);
   if (!token) {
     throw new Error('User not authenticated');
   }
