@@ -9,6 +9,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.22.3",
+    "axios": "^1.7.9",
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "markdown-to-jsx": "^7.7.1",
@@ -25,7 +26,8 @@
     "sass": "^1.82.0",
     "spinners-react": "^1.0.10",
     "toolkit": "^1.5.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
