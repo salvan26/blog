@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import { Routes, Route } from 'react-router-dom';
 
-import Navigation from '../navigation/navigation';
 import ArticlesList from '../article-list/articleList';
 import Article from '../article/article';
 import SignInForm from '../sing-in-form/singInForm';
@@ -9,6 +8,7 @@ import SignUpForm from '../sing-up-form/singUpForm';
 import CreateArticle from '../create-article/createArticle';
 import EditProfileArticle from '../edit-form/editForm';
 import EditArticle from '../edit-article/editArticle';
+import Navigation from '../navigation';
 
 import classes from './App.module.scss';
 
