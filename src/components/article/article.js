@@ -4,7 +4,7 @@ import { Typography, Modal } from 'antd';
 import { format } from 'date-fns';
 import Markdown from 'markdown-to-jsx';
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 import { fetchArticleThunk, fetchArticlesThunk, likeArticleThunk } from '../../redux/reducers/articlesReducer';
 import Loader from '../loader/loader';
@@ -82,7 +82,7 @@ const Article = () => {
         <section className={classes['article__text-section']}>
           <div className={classes.article__header}>
             <h5 className={classes.article__title}>{article.title}</h5>
-            <button type="submit" className={classes['article__likes-section']} onClick={handleLike}>
+            <button type="submit" className={classes['article__likes-section']} onClick={handleLike} disabled={!user}>
               <span className={classes.article__like}>{isLiked ? '❤️' : '🤍'}</span>
               <span className={classes.article__count}>{updatedFavoritesCount}</span>
             </button>
@@ -111,9 +111,14 @@ const Article = () => {
               >
                 Delete
               </button>
-              <button type="button" className={classes['article__edit-button']} onClick={oneEdit}>
+              <Link
+                to={`/articles/${slug}/edit`}
+                type="button"
+                className={classes['article__edit-button']}
+                onClick={oneEdit}
+              >
                 Edit
-              </button>
+              </Link>
             </div>
           ) : null}
         </section>

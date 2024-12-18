@@ -46,9 +46,9 @@ const Navigation = () => {
             <span>{user?.username || 'user'} </span>
             <img src={user?.image || avatar} alt="user avatar" className={classes['navigation__button-image']} />
           </Link>
-          <a href="/" className={logOutButton} onClick={handleLogoutClick}>
+          <button type="button" className={logOutButton} onClick={handleLogoutClick}>
             Log Out
-          </a>
+          </button>
         </div>
       ) : (
         <div className={classes.navigation__section}>

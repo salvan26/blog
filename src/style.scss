@@ -6,3 +6,19 @@
 body {
     background-color: #EBEEF3;
 }
+
+@font-face {
+    font-family: "Inter";
+    src: url('./fonts/Inter-UI-Regular.woff2') format('woff2'),
+         url('./fonts/Inter-UI-Regular.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts/Roboto-Regular.woff2') format('woff2'),
+         url('./fonts/Roboto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

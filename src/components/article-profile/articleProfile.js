@@ -2,7 +2,7 @@ import { Typography } from 'antd';
 import { nanoid } from 'nanoid';
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import { fetchArticleThunk, likeArticleThunk } from '../../redux/reducers/articlesReducer';
@@ -11,19 +11,22 @@ import avatar from '../../images/avatar.jpg';
 import classes from './articleProfile.module.scss';
 
 const ArticleProfile = ({ article }) => {
+  const user = useSelector((state) => state.account.user);
   const { slug } = article;
   const dispatch = useDispatch();
   const [isLiked, setIsLiked] = useState(false);
   const cutTitle = (title) => {
     if (title.length > 40) {
-      return `${title.split('').slice(0, 40).join('')}...`;
+      const cuttedTitle = `${title.split('').slice(0, 40).join('')}...`;
+      return cuttedTitle;
     }
     return title;
   };
 
   const cutDescription = (description) => {
     if (description.length > 150) {
-      return `${description.split('').slice(0, 150).join('')}...`;
+      const cuttedTitle = `${description.split('').slice(0, 150).join('')}...`;
+      return cuttedTitle;
     }
     return description;
   };
@@ -51,34 +54,35 @@ const ArticleProfile = ({ article }) => {
   let tags;
   if (article.tagList) {
     tags = article.tagList.map((tag) => (
-      <Text key={nanoid()} code>
+      <Text code key={nanoid()}>
         {tag}
       </Text>
     ));
   } else {
     tags = [];
   }
-
   const updatedFavoritesCount = isLiked ? article.favoritesCount + 1 : article.favoritesCount;
 
   const creationDate = format(new Date(article.createdAt), 'MMMM dd, yyyy');
 
-  const { image, username } = article;
+  const { image, username } = article.author;
+  const title = cutTitle(article.title);
+  const description = cutDescription(article.description);
 
   return (
     <li className={classes['article-profile']}>
       <section className={classes['article-profile__text']}>
         <div className={classes['article-profile__header']}>
           <Link to={`/articles/${slug}`} className={classes['article-profile__title']} onClick={handleClick}>
-            {cutTitle(article.title)}
+            {title}
           </Link>
-          <button type="submit" className={classes['article-profile__likes']} onClick={handleLike}>
+          <button type="submit" className={classes['article-profile__likes']} onClick={handleLike} disabled={!user}>
             <span className={classes['article-profile__like']}>{isLiked ? '❤️' : '🤍'}</span>
             <span className={classes['article-profile__count']}>{updatedFavoritesCount}</span>
           </button>
         </div>
         <div className={classes['article-profile__tags']}>{tags}</div>
-        <div className={classes['article-profile__article-text']}>{cutDescription(article.description)}</div>
+        <div className={classes['article-profile__article-text']}>{description}</div>
       </section>
       <section className={classes['article-profile__author']}>
         <div className={classes['article-profile__name-date']}>

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-wrap-multilines */
 import { Routes, Route } from 'react-router-dom';
 
 import Navigation from '../navigation/navigation';
